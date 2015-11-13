@@ -34,6 +34,7 @@ def exi():
 atexit.register(exi)
 
 def whois(asn):
+        print(asn)
         whois_str =  "whois -h whois.radb.net -- '-i origin {0}' | grep -Eo \"([0-9.]+){4}/[0-9]*|([0-9A-Fa-f:]+)+/[0-9]*\"".format(asn)
         subprocess.call(whois_str,shell=True,stdout = blist)
         blist.write('\n')
