@@ -1,5 +1,6 @@
 import atexit
-import subprofrom bs4 import BeautifulSoup as sop
+import subprocess
+from bs4 import BeautifulSoup as sop
 import urllib.request as reqa
 global user_agent,headers
 user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36'
