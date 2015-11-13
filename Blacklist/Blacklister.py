@@ -33,11 +33,12 @@ def exi():
 
 atexit.register(exi)
 
-def whois(asns):
-    for asn in asns:
+def whois(asn):
         whois_str =  "whois -h whois.radb.net -- '-i origin {0}' | grep -Eo \"([0-9.]+){4}/[0-9]*|([0-9A-Fa-f:]+)+/[0-9]*\"".format(asn)
-        subprocess.call(whois_str, shell=True,stdout = blist)
+        subprocess.call(whois_str,shell=True,stdout = blist)
+        blist.write('\n')
 
 allasns = getcon('http://bgp.he.net/country/ID') + getcon('http://bgp.he.net/country/CN')
-whois(allasns)
+for asn in allasns:
+    whois(asn)
 
